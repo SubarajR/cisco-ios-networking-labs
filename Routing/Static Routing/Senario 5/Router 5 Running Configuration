@@ -1,0 +1,127 @@
+Router#show run
+Building configuration...
+
+Current configuration : 1246 bytes
+!
+version 15.1
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname Router
+!
+!
+!
+!
+!
+!
+!
+!
+no ip cef
+no ipv6 cef
+!
+!
+
+Router#show run
+Building configuration...
+
+Current configuration : 1246 bytes
+!
+version 15.1
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname Router
+!
+!
+!
+!
+!
+!
+!
+!
+no ip cef
+no ipv6 cef
+!
+!
+!
+!
+license udi pid CISCO2901/K9 sn FTX15245A3C-
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+spanning-tree mode pvst
+!
+!
+!
+!
+!
+!
+interface GigabitEthernet0/0
+ no ip address
+ duplex auto
+ speed auto
+ shutdown
+!
+interface GigabitEthernet0/1
+ no ip address
+ duplex auto
+ speed auto
+ shutdown
+!
+interface Serial0/2/0
+ ip address 20.0.0.1 255.0.0.0
+ clock rate 2000000
+!
+interface Serial0/2/1
+ ip address 40.0.0.1 255.0.0.0
+ clock rate 2000000
+!
+interface Serial0/3/0
+ ip address 30.0.0.1 255.0.0.0
+!
+interface Serial0/3/1
+ ip address 10.0.0.1 255.0.0.0
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+ip classless
+ip route 100.0.0.0 255.240.0.0 Serial0/3/1 
+ip route 100.16.0.0 255.240.0.0 Serial0/3/1 
+ip route 60.0.0.0 255.128.0.0 Serial0/2/0 
+ip route 60.128.0.0 255.128.0.0 Serial0/2/0 
+ip route 172.16.0.0 255.255.192.0 Serial0/2/1 
+ip route 172.16.64.0 255.255.192.0 Serial0/2/1 
+ip route 192.168.0.0 255.255.255.192 Serial0/3/0 
+ip route 192.168.0.64 255.255.255.192 Serial0/3/0 
+!
+ip flow-export version 9
+!
+!
+!
+!
+!
+!
+!
+!
+line con 0
+!
+line aux 0
+!
+line vty 0 4
+ login
+!
+!
+!
+end
