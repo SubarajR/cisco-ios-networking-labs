@@ -1,0 +1,20 @@
+Router>en
+Router#conf t
+Router(config)#int g0/0
+Router(config-if)#ip address 192.168.1.1 255.255.255.0
+Router(config-if)#no sh
+Router(config-if)#exit
+
+Router(config)#int se0/3/0
+Router(config-if)#ip address 100.0.0.1 255.0.0.0
+Router(config-if)#no sh
+Router(config-if)#exit
+       
+Router(config)#ip route 192.168.2.0 255.255.255.0 100.0.0.2 
+Router(config)#ip route 192.168.3.0 255.255.255.0 100.0.0.2 
+Router(config)#ip route 192.168.4.0 255.255.255.0 100.0.0.2 
+Router(config)#ip route 150.0.0.0 255.255.0.0 100.0.0.2 
+Router(config)#ip route 200.0.0.0 255.255.255.0 Serial0/3/0 
+
+Router(config)#do write
+Router(config)#exit
